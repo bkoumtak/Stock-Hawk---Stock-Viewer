@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:weightSum="6">
+    <TextView
+        android:id="@+id/chart_title"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fontFamily="sans-serif"
+        android:textSize="20sp"
+        android:textColor="#FFFFFF"
+        android:text="Hello"
+        android:gravity="bottom|center_horizontal"
+        tools:text="Chart Title"
+        />
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="4">
+        <com.github.mikephil.charting.charts.LineChart
+            android:id="@+id/sample_chart"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </FrameLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:weightSum="2"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/txt_date"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:gravity="center|bottom"
+            android:layout_weight="1"
+            android:textColor="#FFFFFF"
+            tools:text="Date: 03/27/1990"/>
+        <TextView
+            android:id="@+id/txt_close"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:gravity="center|top"
+            android:layout_weight="1"
+            android:textColor="#FFFFFF"
+            tools:text="Closing Value: $100.00"/>
+    </LinearLayout>
+</LinearLayout>
