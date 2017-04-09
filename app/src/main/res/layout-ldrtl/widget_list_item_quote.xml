@@ -9,6 +9,34 @@
     android:paddingStart="16dp"
     android:paddingEnd="16dp"
     android:background="@color/material_grey_900">
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="start">
+        <TextView
+            android:id="@+id/widget_change"
+            style="@style/PercentChangeTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/percent_change_pill_green"
+            android:paddingStart="3dp"
+            android:paddingEnd="3dp"
+            android:textSize="15sp"
+            tools:text="100%" />
+
+        <TextView
+            android:id="@+id/widget_price"
+            style="@style/BidPriceTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10sp"
+            android:textColor="@color/material_grey_600"
+            android:textSize="15sp"
+            tools:text="1000.00" />
+
+
+    </LinearLayout>
 
     <TextView
         android:id="@+id/widget_symbol"
@@ -21,31 +49,5 @@
         android:textStyle="bold"
         tools:text="GOOG" />
 
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:gravity="end">
 
-        <TextView
-            android:id="@+id/widget_price"
-            style="@style/BidPriceTextStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="10sp"
-            android:textColor="@color/material_grey_600"
-            android:textSize="15sp"
-            tools:text="1000.00" />
-
-        <TextView
-            android:id="@+id/widget_change"
-            style="@style/PercentChangeTextStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/percent_change_pill_green"
-            android:paddingStart="3dp"
-            android:paddingEnd="3dp"
-            android:textSize="15sp"
-            tools:text="100%" />
-    </LinearLayout>
 </LinearLayout>

@@ -275,11 +275,11 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
             PrefUtils.toggleDisplayMode(this);
             setDisplayModeMenuItemIcon(item);
             adapter.notifyDataSetChanged();
+            Intent dataUpdatedIntent = new Intent(QuoteSyncJob.ACTION_DATA_UPDATED);
+            sendBroadcast(dataUpdatedIntent);
             return true;
-        } else if (id == R.id.display_chart) {
-            Intent intent = new Intent(this, ChartActivity.class);
-            startActivity(intent);
         }
+
         return super.onOptionsItemSelected(item);
     }
 }

@@ -1,6 +1,7 @@
 package com.udacity.stockhawk.widget;
 
 import android.app.PendingIntent;
+import android.app.TaskStackBuilder;
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
 import android.content.ComponentName;
@@ -11,6 +12,7 @@ import android.widget.RemoteViews;
 
 import com.udacity.stockhawk.R;
 import com.udacity.stockhawk.sync.QuoteSyncJob;
+import com.udacity.stockhawk.ui.ChartActivity;
 import com.udacity.stockhawk.ui.MainActivity;
 
 import timber.log.Timber;
@@ -35,9 +37,16 @@ public class StockHawkWidgetProvider extends AppWidgetProvider {
 
             Intent mIntent = new Intent(context, MainActivity.class);
             PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, mIntent, 0);
+            rv.setOnClickPendingIntent(R.id.widget_header, pendingIntent);
 
-            //rv.setOnClickPendingIntent(R.id.stock_list_view, pendingIntent);
 
+            // Set the fill-in intents
+
+            Intent listStockIntentTemplate = new Intent(context, ChartActivity.class);
+            PendingIntent listStockIntentPendingIntentTemplate = TaskStackBuilder.create(context)
+                    .addNextIntentWithParentStack(listStockIntentTemplate)
+                    .getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
+            rv.setPendingIntentTemplate(R.id.stock_list_view, listStockIntentPendingIntentTemplate);
 
             appWidgetManager.updateAppWidget(appWidgetIds[i], rv);
         }

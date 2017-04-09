@@ -11,6 +11,7 @@ import android.widget.RemoteViewsService;
 import com.udacity.stockhawk.R;
 import com.udacity.stockhawk.data.Contract;
 import com.udacity.stockhawk.data.PrefUtils;
+import com.udacity.stockhawk.ui.ChartActivity;
 
 import java.util.Locale;
 
@@ -86,6 +87,7 @@ public class StockHawkWidgetService extends RemoteViewsService {
         public RemoteViews getViewAt(int position) {
 
             String symbol = "Symbol";
+            String history = "";
             double price = 0.0;
 
             RemoteViews rv = new RemoteViews(mContext.getPackageName(), R.layout.widget_list_item_quote);
@@ -93,6 +95,7 @@ public class StockHawkWidgetService extends RemoteViewsService {
             if (mCursor.moveToPosition(position)){
                 symbol = mCursor.getString(Contract.Quote.POSITION_SYMBOL);
                 price = mCursor.getDouble(Contract.Quote.POSITION_PRICE);
+                history = mCursor.getString(Contract.Quote.POSITION_HISTORY);
             }
 
             rv.setTextViewText(R.id.widget_symbol, symbol);
@@ -116,7 +119,10 @@ public class StockHawkWidgetService extends RemoteViewsService {
                 rv.setTextViewText(R.id.widget_change, percentage);
             }
 
-
+            final Intent fillInIntent = new Intent();
+            fillInIntent.putExtra(ChartActivity.HISTORY_KEY, history);
+            fillInIntent.putExtra(ChartActivity.SYMBOL_KEY, symbol);
+            rv.setOnClickFillInIntent(R.id.widget_list_item_quote, fillInIntent);
             return rv;
         }
 

@@ -68,7 +68,7 @@ public class ChartActivity extends AppCompatActivity implements OnChartValueSele
         setContentView(R.layout.activity_chart);
 
         TextView titleView = (TextView) findViewById(R.id.chart_title);
-        titleView.setText("2 Year Stock History for "+ symbol);
+        titleView.setText(getString(R.string.chart_descripton)+ symbol);
         LineChart chart = (LineChart) findViewById(R.id.sample_chart);
 
         chart.setOnChartValueSelectedListener(this);
@@ -80,7 +80,7 @@ public class ChartActivity extends AppCompatActivity implements OnChartValueSele
             entries.add(new Entry(dates[i], close_values[i]));
         }
 
-        LineDataSet dataSet = new LineDataSet(entries, "Stock Closing Price");
+        LineDataSet dataSet = new LineDataSet(entries, getString(R.string.dataset_string));
         dataSet.setHighLightColor(Color.RED);
 
         LineData lineData = new LineData(dataSet);
@@ -143,8 +143,8 @@ public class ChartActivity extends AppCompatActivity implements OnChartValueSele
         TextView dateTextView = (TextView)findViewById(R.id.txt_date);
         TextView closeTextView = (TextView)findViewById(R.id.txt_close);
 
-        dateTextView.setText("Date:        " + dateString);
-        closeTextView.setText("Closing Stock Price:       " + dollarFormat.format(closeValue));
+        dateTextView.setText(getString(R.string.chart_date_string) + dateString);
+        closeTextView.setText(getString(R.string.chart_close_string) + dollarFormat.format(closeValue));
     }
 
     @Override

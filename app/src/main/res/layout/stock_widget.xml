@@ -1,23 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/stock_widget"
-    android:orientation="vertical"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
     android:layout_width="match_parent"
-    android:layout_height="match_parentf"
+    android:background="#000000"
+    android:orientation="vertical"
     >
-    <ListView
-        android:id="@+id/stock_list_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#000000"/>
     <TextView
-        android:id="@+id/empty_view"
+        android:id="@+id/widget_header"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:textSize="10sp"
-        android:textColor="#FFFFFF"
-        android:background="#000000"
+        android:layout_height="wrap_content"
+        android:text="@string/widget_title"
+        android:contentDescription="Title"
+        android:textSize="20sp"
+        android:textColor="#00c853"
+        android:textStyle="bold"
         android:layout_margin="10dp"
-        android:text="No Stocks Available"/>
-</FrameLayout>
+        android:gravity="center"
+        />
+    <FrameLayout
+        android:id="@+id/stock_widget"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        >
+        <ListView
+            android:id="@+id/stock_list_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#000000"/>
+        <TextView
+            android:id="@+id/empty_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textSize="10sp"
+            android:textColor="#FFFFFF"
+            android:background="#000000"
+            android:layout_margin="10dp"
+            android:text="@string/no_stocks"/>
+    </FrameLayout>
+</LinearLayout>

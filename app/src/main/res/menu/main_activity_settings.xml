@@ -9,11 +9,5 @@
         android:title="@string/action_change_units"
         app:showAsAction="always" />
 
-    <item
-        android:id="@+id/display_chart"
-        android:icon="@drawable/ic_percentage"
-        android:orderInCategory="50"
-        android:title="Display Chart"
-        app:showAsAction="always" />
 
 </menu>
