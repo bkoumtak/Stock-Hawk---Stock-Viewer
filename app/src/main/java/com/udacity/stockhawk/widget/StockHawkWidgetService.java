@@ -15,8 +15,6 @@ import com.udacity.stockhawk.ui.ChartActivity;
 
 import java.util.Locale;
 
-import timber.log.Timber;
-
 /**
  * Created by kondeelai on 2017-03-30.
  */
@@ -68,7 +66,6 @@ public class StockHawkWidgetService extends RemoteViewsService {
 
 
 
-            Timber.d("This was called at least");
         }
 
         @Override

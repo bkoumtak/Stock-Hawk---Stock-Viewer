@@ -14,7 +14,6 @@
         android:fontFamily="sans-serif"
         android:textSize="20sp"
         android:textColor="#FFFFFF"
-        android:text="Hello"
         android:gravity="bottom|center_horizontal"
         tools:text="Chart Title"
         />

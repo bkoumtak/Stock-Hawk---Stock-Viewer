@@ -84,7 +84,6 @@ public final class QuoteSyncJob {
 
             ArrayList<ContentValues> quoteCVs = new ArrayList<>();
 
-
             // Iterate through the Map and get every corresponding quote using the Yahoo
             // Finance API.
             while (iterator.hasNext()) {
@@ -92,13 +91,33 @@ public final class QuoteSyncJob {
 
 
                 Stock stock = quotes.get(symbol);
-                StockQuote testQuote = stock.getQuote();
 
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                 SharedPreferences.Editor editor = prefs.edit();
+                StockQuote testQuote;
+
+                if(stock == null){
+                    editor.putBoolean(symbol, false);
+                    editor.apply();
+                    continue;
+                } else {
+                    testQuote = stock.getQuote();
+                }
 
                 // TODO: Edit Preferences To include valid/invalid stock list
-                if (testQuote.getPrice() == null){
+                /*
+                for (int i = 0; i < symbol.length(); i++){
+                    char c = symbol.charAt(i);
+                    int ascii_value = (int) c;
+                    Timber.d(Integer.toString(ascii_value));
+                    if ( ascii_value < 65 || ascii_value > 90){
+
+                        invalid_character = true;
+                        break;
+                    }
+                }*/
+
+                if (testQuote.getPrice() == null) {
                     editor.putBoolean(symbol, false);
                     editor.apply();
                     continue;

@@ -29,7 +29,7 @@
         android:layout_margin="16dp"
         android:onClick="button"
         android:src="@drawable/fab_plus"
-        android:contentDescription="Add Stock"
+        android:contentDescription="@string/add_stock_content_description"
         app:backgroundTint="@color/material_blue_500"
         app:borderWidth="0dp"
         app:elevation="6dp"

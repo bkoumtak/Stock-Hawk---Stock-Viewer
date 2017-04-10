@@ -38,12 +38,14 @@
 
     <!-- Translate chart messages -->
     <string name="chart_descripton">"2 Year Stock History for "</string>
-    <string name="dataset_string">Stock Closing Price</string>
+    <string name="dataset_string">Stock Closing Price (USD)</string>
     <string name="chart_date_string">"Date:        "</string>
     <string name="chart_close_string">"Closing Stock Price:       "</string>
 
     <!-- Translate widget strings-->
     <string name="widget_title">Stock Hawk</string>
     <string name="no_stocks">No Stocks Available</string>
+    <string name="add_stock_content_description">Add Stock</string>
+    <string name="no_stock_toast">"There is no stock for "</string>
 
 </resources>

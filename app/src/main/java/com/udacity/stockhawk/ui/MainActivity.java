@@ -60,8 +60,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
         Timber.d("Symbol clicked: %s", symbol);
 
-        Toast.makeText(this, "This is supposed to be a chart for " + symbol, Toast.LENGTH_LONG)
-                .show();
         Intent intent = new Intent(this , ChartActivity.class);
         intent.putExtra(ChartActivity.HISTORY_KEY, history);
         intent.putExtra(ChartActivity.SYMBOL_KEY, symbol);
@@ -126,7 +124,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     private BroadcastReceiver mDeleteInvalidReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            Timber.d("WHy wasn't this calle");
            clearInvalid();
         }
     };
@@ -181,7 +178,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
         for (String sym : stockList){
             if (prefs.getBoolean(sym, true) == false){
-                Toast.makeText(this, "There is no stock for " + sym, Toast.LENGTH_LONG).show();
+                Toast.makeText(this, getString(R.string.no_stock_toast) + sym, Toast.LENGTH_LONG).show();
                 stockToRemove = sym;
 
             }
