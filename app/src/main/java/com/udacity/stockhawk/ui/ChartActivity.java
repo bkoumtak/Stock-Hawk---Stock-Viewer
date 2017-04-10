@@ -56,7 +56,7 @@ public class ChartActivity extends AppCompatActivity implements OnChartValueSele
         symbol_history = extras.getString(HISTORY_KEY);
         symbol = extras.getString(SYMBOL_KEY);
 
-        //Timber.d(symbol_history);
+
         long[] dates = parseStockDate(symbol_history);
         float[] close_values = parseStockClose(symbol_history);
 
@@ -89,9 +89,7 @@ public class ChartActivity extends AppCompatActivity implements OnChartValueSele
         XAxis xAxis = chart.getXAxis();
         xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
 
-        //xAxis.setLabelCount(10);
         chart.fitScreen();
-        //yoxAxis.setAxisMinimum();
         xAxis.setLabelCount(4);
         xAxis.setAxisMinimum(dates[dates.length-1]);
         xAxis.setAxisMaximum(dates[0]);

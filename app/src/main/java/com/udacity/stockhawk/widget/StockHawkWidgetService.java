@@ -110,7 +110,7 @@ public class StockHawkWidgetService extends RemoteViewsService {
             String change = dollarFormatWithPlus.format(rawAbsoluteChange);
             String percentage = percentageFormat.format(percentageChange / 100);
 
-            if (PrefUtils.getDisplayMode(mContext).equals("absolute")){
+            if (PrefUtils.getDisplayMode(mContext).equals(R.string.pref_display_mode_absolute_key)){
                 rv.setTextViewText(R.id.widget_change, change);
             } else {
                 rv.setTextViewText(R.id.widget_change, percentage);

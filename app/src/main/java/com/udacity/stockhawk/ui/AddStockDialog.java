@@ -79,7 +79,6 @@ public class AddStockDialog extends DialogFragment {
             ((MainActivity) parent).addStock(stock.getText().toString().replace(" ","").toUpperCase());
         }
 
-        // Dunno what this even means.
         dismissAllowingStateLoss();
     }
 

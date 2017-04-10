@@ -104,19 +104,6 @@ public final class QuoteSyncJob {
                     testQuote = stock.getQuote();
                 }
 
-                // TODO: Edit Preferences To include valid/invalid stock list
-                /*
-                for (int i = 0; i < symbol.length(); i++){
-                    char c = symbol.charAt(i);
-                    int ascii_value = (int) c;
-                    Timber.d(Integer.toString(ascii_value));
-                    if ( ascii_value < 65 || ascii_value > 90){
-
-                        invalid_character = true;
-                        break;
-                    }
-                }*/
-
                 if (testQuote.getPrice() == null) {
                     editor.putBoolean(symbol, false);
                     editor.apply();
@@ -141,12 +128,10 @@ public final class QuoteSyncJob {
                 // Builds the history of each stock
                 for (HistoricalQuote it : history) {
                     historyBuilder.append(it.getDate().getTimeInMillis());
-                    //historyBuilder.append(getDateString(it.getDate().getTimeInMillis()));
-                    //historyBuilder.append(", ");
                     historyBuilder.append(",");
                     historyBuilder.append(it.getClose());
                     historyBuilder.append(",");
-                    //historyBuilder.append("\n");
+
                 }
 
                 // Stores all of this into a content value ArrayList
@@ -159,7 +144,7 @@ public final class QuoteSyncJob {
                 history_string = history_string.substring(0, history_string.length()-1);
                 quoteCV.put(Contract.Quote.COLUMN_HISTORY, history_string);
 
-                //Timber.d(stock.getSymbol() + " " + historyBuilder.toString());
+
                 quoteCVs.add(quoteCV);
 
             }
